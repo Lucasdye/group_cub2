@@ -1,0 +1,7 @@
+- ft_strlen_tabu() associe + 4 a i pour tout '\t' rencontre et + 1 pour les autres.  
+Fonction appelee dans copy_file().
+- ajout_map() pour tout '\t' rencontre dans file_copy lui associer 4 espaces
+dans map_copy.
+- Ajout msg d'error map.
+- Ajout de ft_strlen_tabu(*char str) au .h
+- change_whitespace l24 create_map_carre() pb resou: Invalid size 1.

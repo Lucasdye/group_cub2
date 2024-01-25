@@ -1,0 +1,15 @@
+I) map parsing
+
+- copy file.cub into copy_file
+- Check for solo '\n' in map.
+- copy the map from copy_file to copy_map and replace '\t' by 4 ' ' /!\ in creat_map.c
+- Check if map i closed. The difficulty is to detect unclosed extern wall when it's
+  located a j + 1 in the map...
+  cross algo -> for any space encountered check if the next valid character ('0' or '1')
+  downwars, upwards, left or right (if ocation exists) is a wall ('1') after skipping all adjacent spaces.  
+- fill copy_map spaces with walls ('1')
+- Check for any extraneous characters
+- Check leaks for each problem, scenarios:
+  - No map: OK
+  - Trashed map: OK
+  - Unclosed map: OK
