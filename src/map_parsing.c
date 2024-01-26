@@ -352,62 +352,101 @@ int map_frame(t_data *data, char **map)
 int detect_walls(int start_i, int start_j, char **map)
 {
 	int flag_wall;
+	int flag_space;
 	int temp_i;
 	int temp_j;
 
-	flag_wall = 0;
 	temp_i = start_i;
 	temp_j = start_j;
+	flag_wall = -1;
+	flag_space = -1;
 	//RIGHT
-	while (map[start_j][start_i])
+	while (map[start_j][start_i] && flag_wall == -1)
 	{
 		if (map[start_j][start_i] == '1')
-			flag_wall = 1;
+			flag_wall = start_i;
+		else if (map[start_j][start_i] == ' ')
+			flag_space = start_i;
 		start_i++;
 	}
-	if (flag_wall == 0)
+	if (flag_wall != -1)
+	{
+		dprintf(2, "flag_wall = %d\n", flag_wall);
+		dprintf(2, "flag_space = %d\n", flag_space);
+		if (flag_space != -1 && flag_wall > flag_space)
+			return (FAILED);
+	}
+	else if (flag_wall == -1)
+	{
+		dprintf(2, "FAIL RIGHT\n");
 		return (FAILED);
-	else 
-		flag_wall = 0;
+	}
+	flag_space = -1;
+	flag_wall = -1;
 	printf("Right OK\n");
 	//LEFT
 	start_i = temp_i;
-	while (start_i >= 0)
+	while (start_i >= 0 && flag_wall == -1)
 	{
 		if (map[start_j][start_i] == '1')
-			flag_wall = 1;
+			flag_wall = start_i;
+		else if (map[start_j][start_i] == ' ')
+			flag_space = start_i;
 		start_i--;
 	}
-	if (flag_wall == 0)
-		return (FAILED);
-	else 
-		flag_wall = 0;
+	if (flag_wall != -1)
+	{
+		dprintf(2, "flag_wall = %d\n", flag_wall);
+		dprintf(2, "flag_space = %d\n", flag_space);
+		if (flag_space != -1 && flag_wall < flag_space)
+			return (FAILED);
+	}
+	else if (flag_wall == -1)
+		return (FAILED);	
+	flag_wall = -1;
+	flag_space = -1;
 	printf("Left OK\n");
 	//UP
 	start_i = temp_i;
-	while (start_j >= 0)
+	while (start_j >= 0 && flag_wall == -1)
 	{
 		if (map[start_j][start_i] == '1')
-			flag_wall = 1;
+			flag_wall = start_j;
+		else if (map[start_j][start_i] == ' ')
+			flag_space = start_j;
 		start_j--;
 	}
-	if (flag_wall == 0)
+	if (flag_wall != -1)
+	{
+		dprintf(2, "flag_wall = %d\n", flag_wall);
+		dprintf(2, "flag_space = %d\n", flag_space);
+		if (flag_space != -1 && flag_wall < flag_space)
+			return (FAILED);
+	}
+	else if (flag_wall == -1)
 		return (FAILED);
-	else 
-		flag_wall = 0;
+	flag_wall = -1;
+	flag_space = -1;
 	printf("UP OK\n");
 	start_j = temp_j;
 	//DOWN
-	while (map[start_j])
+	while (map[start_j] && flag_wall == -1)
 	{
 		if (map[start_j][start_i] == '1')
-			flag_wall = 1;
+			flag_wall = start_j;
+		else if (map[start_j][start_i] == ' ')
+			flag_wall = start_j;
 		start_j++;
 	}
-	if (flag_wall == 0)
+	if (flag_wall != -1)
+	{
+		dprintf(2, "flag_wall = %d\n", flag_wall);
+		dprintf(2, "flag_space = %d\n", flag_space);
+		if (flag_space != -1 && flag_wall > flag_space)
+			return (FAILED);
+	}
+	else if (flag_wall == -1)
 		return (FAILED);
-	else 
-		flag_wall = 0;
 	printf("DOWN OK\n");
 	return (SUCCESS);
 }
@@ -428,7 +467,7 @@ int is_map_closed(char **map)
 			{	
 				if (detect_walls(i, j, map) == FAILED)
 				{
-					dprintf(2, "unshut floor at [%d][%d]\n", j, i);
+					dprintf(2, "unshut floor at [%d][%d] = %c\n", j, i, map[j][i]);
 					return (FAILED);
 				}
 			}
@@ -438,30 +477,6 @@ int is_map_closed(char **map)
 	}
 	return (SUCCESS);
 }
-
-// int check_floating_floor(char **map_framed)
-// {
-// 	int i;
-// 	int j;
-
-// 	i = 1;
-// 	//j = 0;
-
-// 	//NORTH towards south
-// 	while (i < ft_strlen(map_framed[0]))
-// 	{
-// 		j = 1;
-// 		while (map_framed[j] && map_framed[j][i] == ' ')
-// 			j++;
-// 		if (map_framed[j][i] != 1)
-// 		{
-// 			ft_printf("Floating floor at [%d][%d]\n", j, i);
-// 			return (FAILED);
-// 		}
-// 		i++;
-// 	}
-// 	return (SUCCESS);	
-// }
 
 int		map_parsing(t_data *data, char ***copy_map, char *path)
 {
@@ -483,6 +498,7 @@ int		map_parsing(t_data *data, char ***copy_map, char *path)
 	// dprintf(2, "copy_map after fill_spaces:\n");
 	// print_map(data->map.copy_map);
 	(void)copy_map;
+	print_map(data->map.copy_map);
 	if (only_one_player(data->map.copy_map) == FAILED)
 		return((void)ft_printf("Error: two player found\n"), FAILED);
 	if (is_map_closed(data->map.copy_map) == FAILED)

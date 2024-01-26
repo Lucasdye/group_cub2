@@ -51,6 +51,8 @@ int check_char_tab(char **map)
 
 	i = 0;
 	j = 0;
+
+	dprintf(2, BLUE "check_char_tab()\n" RESET_COLOR);
 	while (map[j] != NULL)
 	{
 		while (map[j][i])
