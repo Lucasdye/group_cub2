@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   image.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sycourbi <sycourbi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lbouguet <lbouguet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:46:59 by sycourbi          #+#    #+#             */
-/*   Updated: 2024/01/18 12:48:14 by sycourbi         ###   ########.fr       */
+/*   Updated: 2024/01/26 14:19:42 by lbouguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,16 +91,16 @@ int	go_image(t_data *data)
 	if (malloc_texture_nsew(data))
 		return (FAILED);
 	if (load_image(data, data->texture_nsew[0],
-			data->texture->text_north, &data->img))
+			data->texture.text_north, &data->img))
 		return (FAILED);
 	if (load_image(data, data->texture_nsew[1],
-			data->texture->text_south, &data->img))
+			data->texture.text_south, &data->img))
 		return (FAILED);
 	if (load_image(data, data->texture_nsew[2],
-			data->texture->text_west, &data->img))
+			data->texture.text_west, &data->img))
 		return (FAILED);
 	if (load_image(data, data->texture_nsew[3],
-			data->texture->text_east, &data->img))
+			data->texture.text_east, &data->img))
 		return (FAILED);
 	data->img.img = mlx_new_image(data->mlx_ptr, WIDTH, HEIGHT);
 	if (!data->img.img)

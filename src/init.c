@@ -6,7 +6,7 @@
 /*   By: lbouguet <lbouguet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:58:02 by sycourbi          #+#    #+#             */
-/*   Updated: 2024/01/19 14:02:07 by lbouguet         ###   ########.fr       */
+/*   Updated: 2024/01/26 14:16:09 by lbouguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,10 +70,10 @@ int	init_data(t_data *data)
 	data->map.copy_map = NULL;
 	data->text_pix = NULL;
 	data->texture_nsew = NULL;
-	data->texture = malloc(sizeof(t_text));
-	if (!data->texture)
-		return (free(data), FAILED);
-	init_texture(data->texture);
+	// data->texture = malloc(sizeof(t_text));
+	// if (!data->texture)
+	// 	return (free(data), FAILED);
+	init_texture(&data->texture);
 	init_img(&data->img);
 	return (SUCCESS);
 }

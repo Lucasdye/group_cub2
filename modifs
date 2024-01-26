@@ -5,4 +5,6 @@ Ce mur est considere comme fermant s'il n'y a pas eu d'espace ' ' rencontre.
 
 - la structure data est declaree comme une variable simple et non plus comme un pointeur.
 
--probleme du mur traversable lorsque le joueur le touche par la droite. 
+- probleme du mur traversable lorsque le joueur le touche par la droite.
+
+- Letters aren't accepted in color definition. 

@@ -103,7 +103,7 @@ int detect_walls(int start_i, int start_j, char **map)
 	flag_wall = -1;
 	flag_space = -1;
 	//RIGHT
-	ft_printf(BLUE "detect_walls\n" RESET_COLOR);
+	//ft_printf(BLUE "detect_walls\n" RESET_COLOR);
 	while (map[start_j][start_i] && flag_wall == -1)
 	{
 		if (map[start_j][start_i] == '1')
@@ -114,19 +114,19 @@ int detect_walls(int start_i, int start_j, char **map)
 	}
 	if (flag_wall != -1)
 	{
-		dprintf(2, "flag_wall = %d\n", flag_wall);
-		dprintf(2, "flag_space = %d\n", flag_space);
+		//dprintf(2, "flag_wall = %d\n", flag_wall);
+		//(2, "flag_space = %d\n", flag_space);
 		if (flag_space != -1 && flag_wall > flag_space)
 			return (FAILED);
 	}
 	else if (flag_wall == -1)
 	{
-		dprintf(2, "FAIL RIGHT\n");
+		//dprintf(2, "FAIL RIGHT\n");
 		return (FAILED);
 	}
 	flag_space = -1;
 	flag_wall = -1;
-	printf("Right OK\n");
+	//printf("Right OK\n");
 	//LEFT
 	start_i = temp_i;
 	while (start_i >= 0 && flag_wall == -1)
@@ -139,8 +139,8 @@ int detect_walls(int start_i, int start_j, char **map)
 	}
 	if (flag_wall != -1)
 	{
-		dprintf(2, "flag_wall = %d\n", flag_wall);
-		dprintf(2, "flag_space = %d\n", flag_space);
+		//dprintf(2, "flag_wall = %d\n", flag_wall);
+		//dprintf(2, "flag_space = %d\n", flag_space);
 		if (flag_space != -1 && flag_wall < flag_space)
 			return (FAILED);
 	}
@@ -148,7 +148,7 @@ int detect_walls(int start_i, int start_j, char **map)
 		return (FAILED);	
 	flag_wall = -1;
 	flag_space = -1;
-	printf("Left OK\n");
+	//printf("Left OK\n");
 	//UP
 	start_i = temp_i;
 	while (start_j >= 0 && flag_wall == -1)
@@ -161,8 +161,8 @@ int detect_walls(int start_i, int start_j, char **map)
 	}
 	if (flag_wall != -1)
 	{
-		dprintf(2, "flag_wall = %d\n", flag_wall);
-		dprintf(2, "flag_space = %d\n", flag_space);
+		//dprintf(2, "flag_wall = %d\n", flag_wall);
+		//dprintf(2, "flag_space = %d\n", flag_space);
 		if (flag_space != -1 && flag_wall < flag_space)
 			return (FAILED);
 	}
@@ -170,7 +170,7 @@ int detect_walls(int start_i, int start_j, char **map)
 		return (FAILED);
 	flag_wall = -1;
 	flag_space = -1;
-	printf("UP OK\n");
+	//printf("UP OK\n");
 	start_j = temp_j;
 	//DOWN
 	while (map[start_j] && flag_wall == -1)
@@ -183,14 +183,14 @@ int detect_walls(int start_i, int start_j, char **map)
 	}
 	if (flag_wall != -1)
 	{
-		dprintf(2, "flag_wall = %d\n", flag_wall);
-		dprintf(2, "flag_space = %d\n", flag_space);
+		//dprintf(2, "flag_wall = %d\n", flag_wall);
+		//dprintf(2, "flag_space = %d\n", flag_space);
 		if (flag_space != -1 && flag_wall > flag_space)
 			return (FAILED);
 	}
 	else if (flag_wall == -1)
 		return (FAILED);
-	printf("DOWN OK\n");
+	//printf("DOWN OK\n");
 	return (SUCCESS);
 }
 

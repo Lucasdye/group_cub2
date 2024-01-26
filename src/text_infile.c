@@ -6,7 +6,7 @@
 /*   By: lbouguet <lbouguet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:46:47 by sycourbi          #+#    #+#             */
-/*   Updated: 2024/01/22 13:30:04 by lbouguet         ###   ########.fr       */
+/*   Updated: 2024/01/26 14:19:19 by lbouguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,9 +61,9 @@ int	check_whitespace(char **file, int i, int j, t_data *data)
 	if (file[i][j] && (file[i][j] >= 'A' && file[i][j] <= 'Z'))
 	{
 		if (file[i][j + 1] && (file[i][j + 1] >= 'A' && file[i][j + 1] <= 'Z'))
-			return (ajout_texture(file[i], j, data->texture));
+			return (ajout_texture(file[i], j, &data->texture));
 		else if (file[i][j + 1])
-			return (ajout_color(file[i], j, data->texture));
+			return (ajout_color(file[i], j, &data->texture));
 	}
 	if (file[i][j] == '\0' || file[i][j] == '\n')
 		return (1);

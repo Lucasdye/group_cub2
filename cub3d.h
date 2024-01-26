@@ -6,7 +6,7 @@
 /*   By: lbouguet <lbouguet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:46:51 by sycourbi          #+#    #+#             */
-/*   Updated: 2024/01/24 16:36:54 by lbouguet         ###   ########.fr       */
+/*   Updated: 2024/01/26 14:15:26 by lbouguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ typedef struct s_data
 	int				tab[HEIGHT + 1][WIDTH + 1];
 	int				tex_x;
 	t_map			map;
-	t_text			*texture;
+	t_text			texture;
 	t_player		player;
 	t_img			img;
 }	t_data;

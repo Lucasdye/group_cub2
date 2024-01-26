@@ -6,12 +6,13 @@
 /*   By: lbouguet <lbouguet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:49:44 by sycourbi          #+#    #+#             */
-/*   Updated: 2024/01/24 16:28:26 by lbouguet         ###   ########.fr       */
+/*   Updated: 2024/01/26 14:36:46 by lbouguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../cub3d.h"
 
+//Checking map's extension (.cub)
 int	check_extension(char *str)
 {
 	int	i;
@@ -38,32 +39,19 @@ int	check_arg(char *av, t_data *data)
 		return (ft_delete(data), FAILED);
 	if (creat_copy_file(av, data))
 		return (ft_delete(data), FAILED);
-	dprintf(2, "copy_file:\n");
-	//dprintf(2, "\t");
-	//print_map(data->map.copy_file);
 	if (texture_infile(data, data->map.copy_file))
 		return (ft_delete(data), FAILED);
-	//dprintf(2, "text->text_east %s\n", data->texture->text_east);
-	if (verif_texture_color(data->texture))
+	if (verif_texture_color(&data->texture))
 		return (ft_delete(data), FAILED);
-	//dprintf(2, "data->map.copy_map[j][i] = %c|\n", data->map.copy_map[0][0]);
 	if (map_parsing(data, &data->map.copy_map, data->name_file))
 		return (ft_delete(data),FAILED);
 	if (creat_map_carre(data))
 		return (ft_delete(data), FAILED);
-	//printf("NNNNNNNNNNNNNNNNNNNNNN\n");
-	//print_map(data->map_fini);
 	if (check_pos_player(data->map_fini, data))
 		return (ft_delete(data), FAILED);
-	
-	//if (ft_verif_map(data, data->map.copy_map))
-	//	return (ft_delete(data), FAILED);
-	//printf("height = %d\n width = %d\n", data->map.map_height, data->map.map_width);
-	data->rgb_c = 256 * 256 * data->texture->color_c[0] + 256
-		* data->texture->color_c[1] + data->texture->color_c[2];
-	data->rgb_f = 256 * 256 * data->texture->color_f[0] + 256
-		* data->texture->color_f[1] + data->texture->color_f[2];
-	// if (creat_map_carre(data))
-	// 	return (ft_delete(data), FAILED);
+	data->rgb_c = 256 * 256 * data->texture.color_c[0] + 256
+		* data->texture.color_c[1] + data->texture.color_c[2];
+	data->rgb_f = 256 * 256 * data->texture.color_f[0] + 256
+		* data->texture.color_f[1] + data->texture.color_f[2];
 	return (0);
 }
