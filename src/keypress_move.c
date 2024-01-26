@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   keypress_move.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sycourbi <sycourbi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lbouguet <lbouguet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/01/18 12:17:03 by sycourbi          #+#    #+#             */
-/*   Updated: 2024/01/18 12:30:39 by sycourbi         ###   ########.fr       */
+/*   Updated: 2024/01/26 14:05:07 by lbouguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	droite(t_data *data)
 		data->pos_x += data->dir_y * data->movespeed;
 	if ((data->pos_y - data->dir_x * data->movespeed) > 0
 		&& data->map_fini[(int)data->pos_x][(int)(data->pos_y
-		- data->dir_x * data->movespeed) != '1'])
+		- data->dir_x * data->movespeed)] != '1')
 		data->pos_y -= data->dir_x * data->movespeed;
 }
 

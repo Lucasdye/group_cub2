@@ -1,7 +1,8 @@
-- ft_strlen_tabu() associe + 4 a i pour tout '\t' rencontre et + 1 pour les autres.  
-Fonction appelee dans copy_file().
-- ajout_map() pour tout '\t' rencontre dans file_copy lui associer 4 espaces
-dans map_copy.
-- Ajout msg d'error map.
-- Ajout de ft_strlen_tabu(*char str) au .h
-- change_whitespace l24 create_map_carre() pb resou: Invalid size 1.
+- checking de la map: pour tout '0' rencontres chercher le mur Nord, Est, West, Sud qui l'enferme. 
+Ce mur est considere comme fermant s'il n'y a pas eu d'espace ' ' rencontre.
+
+- Toute tabulation rencontree engendre une erreur. (seulement les espaces sont autorises)
+
+- la structure data est declaree comme une variable simple et non plus comme un pointeur.
+
+-probleme du mur traversable lorsque le joueur le touche par la droite. 

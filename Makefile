@@ -6,7 +6,7 @@
 #    By: lbouguet <lbouguet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 12:46:56 by sycourbi          #+#    #+#              #
-#    Updated: 2024/01/22 17:25:19 by lbouguet         ###   ########.fr        #
+#    Updated: 2024/01/26 11:50:13 by lbouguet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ MLX = ./minilibx-linux/libmlx.a
 
 CC = cc
 
-CFLAG = -Wall -Wextra -Werror -g3
+CFLAG = -Wall -Wextra -Werror -g
 MFLAG = -lX11 -lXext -lm
 
 all: $(NAME)
