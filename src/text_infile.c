@@ -6,7 +6,7 @@
 /*   By: lbouguet <lbouguet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:46:47 by sycourbi          #+#    #+#             */
-/*   Updated: 2024/01/26 14:19:19 by lbouguet         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:20:58 by lbouguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ int	texture_infile(t_data *data, char **copy_file)
 	int	res;
 
 	i = 0;
-	dprintf(2, BLUE "texture_infile()\n" RESET_COLOR);
 	while (copy_file[i])
 	{
 		res = check_whitespace(copy_file, i, 0, data);

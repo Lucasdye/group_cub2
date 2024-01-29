@@ -6,7 +6,7 @@
 /*   By: lbouguet <lbouguet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:46:51 by sycourbi          #+#    #+#             */
-/*   Updated: 2024/01/26 14:15:26 by lbouguet         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:03:17 by lbouguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,8 @@ typedef struct s_data
 	t_img			img;
 }	t_data;
 
+/*map_parsing*/
+int		detect_walls(int start_i, int start_j, char **map);
 /*main.c*/
 size_t	ft_strlen_tabu( const char *s);
 int		main(int argc, char **argv);
@@ -150,6 +152,8 @@ void	free_tab(void **tab);
 int		malloc_texture_nsew(t_data *data);
 int		size_big_line(char **file, int i);
 int		nbr_line_map(char **map, int i, int j);
+int		is_player(char letter);
+
 /*text_infile*/
 int		texture_infile(t_data *data, char **map);
 /*color_infile*/

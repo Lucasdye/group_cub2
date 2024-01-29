@@ -6,7 +6,7 @@
 /*   By: lbouguet <lbouguet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/13 16:31:30 by sycourbi          #+#    #+#             */
-/*   Updated: 2024/01/22 14:40:33 by lbouguet         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:20:14 by lbouguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	nbr_line_file(int fd)
 size_t	ft_strlen_tabu( const char *s)
 {
 	size_t	i;
-	size_t  size;
+	size_t	size;
 
 	i = 0;
 	size = 0;
@@ -57,7 +57,6 @@ int	copy_file(t_data *data)
 	int		j;
 	char	*line;
 
-	dprintf(2, BLUE "copy_file()\n" RESET_COLOR);
 	i = 0;
 	line = get_next_line(data->map.fd);
 	while (line != NULL)
@@ -84,12 +83,10 @@ int	creat_copy_file(char *file, t_data *data)
 {	
 	int	i;
 
-	dprintf(2, BLUE "creat_copy_file()\n" RESET_COLOR);
 	data->map.fd = open(file, O_RDONLY);
 	if (data->map.fd == -1)
 		return (msg_err("problem fonction open"), FAILED);
 	i = nbr_line_file(data->map.fd);
-	dprintf(2, "number of lines = %d\n", i);
 	data->name_file = ft_strdup(file);
 	data->map.copy_file = ft_calloc((i + 1), sizeof(char *));
 	if (!data->map.copy_file)

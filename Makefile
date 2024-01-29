@@ -6,7 +6,7 @@
 #    By: lbouguet <lbouguet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/11/07 12:46:56 by sycourbi          #+#    #+#              #
-#    Updated: 2024/01/26 11:50:13 by lbouguet         ###   ########.fr        #
+#    Updated: 2024/01/29 14:03:55 by lbouguet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,16 +20,16 @@ SRC = $(SRC_DIR)main.c $(SRC_DIR)init.c $(SRC_DIR)error.c $(SRC_DIR)creat_copy_f
 	$(SRC_DIR)color_infile.c $(SRC_DIR)verif_map.c $(SRC_DIR)text_color_check.c \
 	$(SRC_DIR)creat_map_carre.c $(SRC_DIR)keypress.c $(SRC_DIR)keypress_move.c \
 	$(SRC_DIR)pos_player.c $(SRC_DIR)start_mlx.c $(SRC_DIR)image.c $(SRC_DIR)raycaster.c \
-	$(SRC_DIR)map_parsing.c
+	$(SRC_DIR)map_parsing.c $(SRC_DIR)wall_detector.c
 
 OBJ = $(SRC:$(SRC_DIR)%.c=$(OBJ_DIR)%.o)
 
 LIB = ./libft/libft.a
 MLX = ./minilibx-linux/libmlx.a
 
-CC = cc
+CC = gcc
 
-CFLAG = -Wall -Wextra -Werror -g
+CFLAG = -Wall -Wextra -Werror -g 
 MFLAG = -lX11 -lXext -lm
 
 all: $(NAME)
@@ -46,7 +46,7 @@ $(MLX):
 
 $(NAME): $(MLX) $(OBJ)
 	@make -C ./libft
-	@$(CC) $(CFLAG) -o $(NAME) $(OBJ) $(LIB) -I. $(MLX) $(MFLAG) -I. -L/usr/local/lib
+	 @$(CC) $(CFLAG) -o $(NAME) $(OBJ) $(LIB) -I. $(MLX) -I. -L/usr/local/lib $(MFLAG)
 
 clean:
 	@rm -rf minilibx-linux

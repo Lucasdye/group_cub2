@@ -6,7 +6,7 @@
 /*   By: lbouguet <lbouguet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:49:44 by sycourbi          #+#    #+#             */
-/*   Updated: 2024/01/22 17:53:56 by lbouguet         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:18:02 by lbouguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ int	creat_map_carre(t_data *data)
 	int	i;
 
 	i = 0;
-	data->map.map_height = nbr_line_map(data->map.copy_map, 0 , 0);
+	data->map.map_height = nbr_line_map(data->map.copy_map, 0, 0);
 	data->map_fini = malloc(sizeof(char *) * (data->map.map_height + 1));
 	if (!data->map_fini)
 		return (FAILED);

@@ -1,0 +1,6 @@
+# mlx.supp
+{
+   mlx-leak
+   Memcheck:Leak
+   match-leak-kinds: reachabl
+}

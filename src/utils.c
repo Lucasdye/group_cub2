@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sycourbi <sycourbi@student.42.fr>          +#+  +:+       +#+        */
+/*   By: lbouguet <lbouguet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:26:52 by sycourbi          #+#    #+#             */
-/*   Updated: 2024/01/18 12:50:44 by sycourbi         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:20:45 by lbouguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,3 +68,21 @@ int	malloc_texture_nsew(t_data *data)
 	malloc_texture_nsew2(data);
 	return (SUCCESS);
 }
+
+int	is_player(char letter)
+{
+	if (letter == 'N' || letter == 'S' || letter == 'E' || letter == 'W')
+		return (1);
+	return (0);
+}
+
+// void	print_map(char **map)
+// {
+// 	int	i;
+
+// 	i = 0;
+// 	if (!map)
+// 		return ;
+// 	while (map[i])
+// 		i++;
+// }

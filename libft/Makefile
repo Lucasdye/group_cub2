@@ -6,7 +6,7 @@
 #    By: lbouguet <lbouguet@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/11 08:28:18 by sycourbi          #+#    #+#              #
-#    Updated: 2024/01/22 17:24:45 by lbouguet         ###   ########.fr        #
+#    Updated: 2024/01/29 11:24:53 by lbouguet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -71,7 +71,7 @@ BONUS_O = $(BONUS:.c=.o)
 
 CC = gcc
 
-cflags = -Wall -Wextra -Werror
+cflags = -Wall -Wextra -Werror -g
 
 all: $(NAME)
 

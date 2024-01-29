@@ -6,7 +6,7 @@
 /*   By: lbouguet <lbouguet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 14:46:47 by sycourbi          #+#    #+#             */
-/*   Updated: 2024/01/22 13:30:50 by lbouguet         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:20:36 by lbouguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,7 +81,6 @@ int	check_text(t_text *text)
 
 int	verif_texture_color(t_text *text)
 {
-	dprintf(2, BLUE "verif_texture_color()\n" RESET_COLOR);
 	if (!text->text_east || !text->text_north || !text->text_south
 		|| !text->text_west)
 		return (msg_err("Erreur de texture"), FAILED);

@@ -6,7 +6,7 @@
 /*   By: lbouguet <lbouguet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 12:46:59 by sycourbi          #+#    #+#             */
-/*   Updated: 2024/01/26 14:11:17 by lbouguet         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:17:32 by lbouguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ int	main(int argc, char **argv)
 {
 	t_data	data;
 
+	(void)argv;
 	if (argc != 2)
 		return (printf("problem nbr arg\n"), 1);
 	if (init_data(&data))

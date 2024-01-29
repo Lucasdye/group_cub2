@@ -6,7 +6,7 @@
 /*   By: lbouguet <lbouguet@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 13:32:54 by sycourbi          #+#    #+#             */
-/*   Updated: 2024/01/26 14:25:18 by lbouguet         ###   ########.fr       */
+/*   Updated: 2024/01/29 14:16:42 by lbouguet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,8 +36,6 @@ void	free_texture(t_text *texture)
 		free(texture->color_c);
 	if (texture->color_f)
 		free(texture->color_f);
-	// if (texture)
-	// 	free(texture);
 }
 
 void	free_map(t_map	*map)
@@ -62,7 +60,6 @@ void	ft_delete(t_data *data)
 		free_tab((void **)data->texture_nsew);
 	free_map(&data->map);
 	free_texture(&data->texture);
-	//free(data);
 }
 
 void	all_free(t_data *data)
